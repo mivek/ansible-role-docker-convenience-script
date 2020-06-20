@@ -18,7 +18,8 @@ galaxy_info:
   platforms:
    - name: Debian
      versions:
-      - all
+      - 10
+      - 9
 
   galaxy_tags:
     - docker
