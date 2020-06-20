@@ -25,7 +25,7 @@ install:
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
   - cd ../
-  - mv $ROLE_NAME mivek.$ROLE_NAME
+  - mv ansible-role-$ROLE_NAME mivek.$ROLE_NAME
   - cd mivek.$ROLE_NAME
 
 
