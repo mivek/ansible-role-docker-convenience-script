@@ -4,7 +4,7 @@ services: docker
 
 env:
   global:
-    - ROLE_NAME: docker_convenience_script
+    - ROLE_NAME: docker-convenience-script
     - MOLECULE_NO_LOG: "false"
   matrix:
     - MOLECULE_DISTRO: debian10

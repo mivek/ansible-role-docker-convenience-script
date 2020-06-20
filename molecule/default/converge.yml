@@ -4,6 +4,6 @@
   tasks:
     - name: "Include docker_convenience_script"
       include_role:
-        name: "docker_convenience_script"
+        name: "mivek.docker-convenience-script"
       vars:
         install_test_version: true
