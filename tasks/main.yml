@@ -1,0 +1,43 @@
+---
+# tasks file for install_docker_convenience_script
+- name: Make sure dependencies are installed
+  apt:
+    name: ['libffi-dev', 'openssl', 'gcc', 'libc-dev', 'make', curl]
+    state: present
+  become: true
+
+- set_fact:
+    __docker_url: "{{ __testing_url }}"
+  when: install_test_version 
+
+- name: Check Docker installed
+  stat: "path={{ __docker_cmd_path }}"
+  register: docker_installed
+
+- block: 
+  - name: Retrieve the convenience script
+    get_url:
+      url: "{{ __docker_url }}"
+      dest: "{{ __script_location }}"
+
+  - name: Run the installation script
+    shell: "sh {{ __script_location }}"
+    become: true
+    notify: delete script
+
+  - name: Add users in docker group
+    user:
+      name: "{{ item }}"
+      groups: docker
+      append: true
+    with_items: "{{ docker_users }}"
+    become: true
+
+  - name: Install Docker Compose (if configured).
+    pip:
+      name: docker-compose
+    become: true
+    when: install_compose is true
+    notify: 
+    - restart docker
+  when: not docker_installed.stat.exists

@@ -1,0 +1,16 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  become: true
+  tasks:
+  - name: Check that docker-compose is installed
+    command:
+      cmd: docker-compose --version
+
+  - name: Check that docker is installed
+    command:
+      cmd: docker --version
+
+  

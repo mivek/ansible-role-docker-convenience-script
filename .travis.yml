@@ -1,0 +1,36 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME: docker_convenience_script
+    - MOLECULE_NO_LOG: "false"
+  matrix:
+    - MOLECULE_DISTRO: debian10
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: debian8
+    - MOLECULE_DISTRO: centos6
+
+# Install ansible
+addons:
+  apt:
+    packages:
+    - python-pip
+
+install:
+  # Install test dependencies.
+  - pip install ansible molecule yamllint ansible-lint docker
+
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv $ROLE_NAME mivek.$ROLE_NAME
+  - cd mivek.$ROLE_NAME
+
+
+script:
+  - molecule test
+
+#notifications:
+#  webhooks: https://galaxy.ansible.com/api/v1/notifications/

@@ -1,0 +1,14 @@
+---
+# handlers file for install_docker_convenience_script
+- name: restart docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: true
+  
+- name: delete script
+  file:
+    path: "{{ __script_location }}"
+    state: absent
+  become: true

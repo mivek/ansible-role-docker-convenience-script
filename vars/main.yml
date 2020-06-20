@@ -1,0 +1,11 @@
+---
+# vars file for install_docker_convenience_script
+__edge_url:  https://get.docker.com
+
+__testing_url: https://test.docker.com
+
+__script_location: /tmp/docker.sh
+
+__docker_url: "{{ __edge_url }}"
+
+__docker_cmd_path: "/usr/bin/docker"

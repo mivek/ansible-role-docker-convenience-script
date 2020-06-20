@@ -1,0 +1,9 @@
+---
+# defaults file for install_docker_convenience_script
+
+install_test_version: false
+
+
+docker_users: [] # Users allowed to use docker
+
+install_compose: true
