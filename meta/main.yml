@@ -1,7 +1,7 @@
 galaxy_info:
   author: mivek
   description: your role description
-
+  role_name: docker-convenience-script
   license: MIT
 
   min_ansible_version: 2.9
