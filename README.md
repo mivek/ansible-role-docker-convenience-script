@@ -1,4 +1,5 @@
 Docker convenience script
+[![Build Status](https://travis-ci.com/mivek/ansible-role-docker-convenience-script.svg?token=Nxd1CoxuZDnwzK6Yq6sV&branch=master)](https://travis-ci.com/mivek/ansible-role-docker-convenience-script)
 =========
 
 This role installs [Docker](https://www.docker.com/) via convenience script.
