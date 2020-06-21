@@ -18,13 +18,12 @@ galaxy_info:
   platforms:
    - name: Debian
      versions:
-      - 10
-      - 9
+      - buster
+      - stretch
 
   galaxy_tags:
     - docker
     - raspberrypi
-    - docker-compose
 
 dependencies: []
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,

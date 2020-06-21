@@ -6,7 +6,8 @@
     state: present
   become: true
 
-- set_fact:
+- name: Set the docker url
+  set_fact:
     __docker_url: "{{ __testing_url }}"
   when: install_test_version 
 
@@ -21,7 +22,7 @@
       dest: "{{ __script_location }}"
 
   - name: Run the installation script
-    shell: "sh {{ __script_location }}"
+    command: "sh {{ __script_location }}"
     become: true
     notify: delete script
 
